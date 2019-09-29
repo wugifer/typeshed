@@ -74,3 +74,8 @@ class _SingleDispatchCallable(Generic[_T]):
     def __call__(self, *args: Any, **kwargs: Any) -> _T: ...
 
 def singledispatch(func: Callable[..., _T]) -> _SingleDispatchCallable[_T]: ...
+
+def _make_key(args, kwds, typed,
+             kwd_mark = (object(),),
+             fasttypes = {int, str, frozenset, type(None)},
+             tuple=tuple, type=type, len=len): pass
